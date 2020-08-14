@@ -1,21 +1,21 @@
 class Triangle
-  def initialize(a,b,side3)
+  def initialize(a,b,c)
     @a = a
     @b = b
-    @side3 = side3
+    @c = c
   end
 
   def kind()
-    if (@a <= 0) || (@b <= 0) || (@side3 <= 0)
+    if (@a <= 0) || (@b <= 0) || (@c <= 0)
       raise TriangleError
-    elsif (@a+@b <= @side3) || (@a+@side3 <= @b) || (@b+@side3 <= @a)
+    elsif (@a+@b <= @c) || (@a+@c <= @b) || (@b+@c <= @a)
       raise TriangleError
     else
-      if (@a == @b) && (@b == @side3)
+      if (@a == @b) && (@b == @c)
         :equilateral
-      elsif (@a == @b) || (@b == @side3) || (@a == @side3)
+      elsif (@a == @b) || (@b == @c) || (@a == @c)
         :isosceles
-      elsif (@a != @b) && (@b != @side3) && (@a != @side3)
+      elsif (@a != @b) && (@b != @c) && (@a != @c)
         :scalene
       end
     end
